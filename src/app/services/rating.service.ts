@@ -16,7 +16,7 @@ export class RatingService {
     return this.http.get(`${baseUrl}?sightId=${sightId}`)
   }
 
-  create(rating: number, sightId: any): Observable<Rating>{
-    return this.http.get(`${baseUrl}?sightId=${sightId}&rating=${rating}`)
+  create(rating: number, sightId: any): Observable<any>{
+    return this.http.post(`${baseUrl}?sightId=${sightId}&rating=${rating}`, false)
   }
 }
