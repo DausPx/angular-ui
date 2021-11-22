@@ -8,6 +8,9 @@ import { UpdateSightComponent } from './components/update-sight/update-sight.com
 import { SightComponent } from './components/sight/sight.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { CreateSightComponent } from './components/create-sight/create-sight.component';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     UpdateSightComponent,
     SightComponent,
     RatingComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    CreateSightComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

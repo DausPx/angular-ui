@@ -1,7 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateSightComponent } from './components/create-sight/create-sight.component';
+import { SearchSightsComponent } from './components/search-sights/search-sights.component';
+import { SightComponent } from './components/sight/sight.component';
+import { UpdateSightComponent } from './components/update-sight/update-sight.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  { path: '', redirectTo: 'search', pathMatch: 'full' },
+  { path: 'search', component:  SearchSightsComponent},
+  { path: 'sight/:id', component: SightComponent },
+  { path: 'sight/update/:id', component: UpdateSightComponent },
+  { path: 'sight/new', component: CreateSightComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
