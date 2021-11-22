@@ -8,9 +8,9 @@ import { UpdateSightComponent } from './components/update-sight/update-sight.com
 const routes: Routes = [
   { path: '', redirectTo: 'search', pathMatch: 'full' },
   { path: 'search', component:  SearchSightsComponent},
+  { path: 'sight/new', component: CreateSightComponent },
   { path: 'sight/:id', component: SightComponent },
   { path: 'sight/update/:id', component: UpdateSightComponent },
-  { path: 'sight/new', component: CreateSightComponent },
 ];
 
 @NgModule({

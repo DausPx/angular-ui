@@ -1,1 +1,45 @@
-<p>search-sights works!</p>
+<div class="list row">
+  <div class="col-md-12">
+    <div class="input-group mb-3">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Search by name"
+        [(ngModel)]="searchName"
+      />
+      <select [(ngModel)]="relevance">
+        <option value="znamenito">Znamenito</option>
+        <option value="veoma znamenito">Veoma Znamenito</option>
+        <option value="nezaobilazno">Nezaobilazno</option>
+      </select>
+      <div class="input-group-append">
+        <button
+          class="btn btn-outline-secondary"
+          type="button"
+          (click)="searchSights()"
+        >
+          Search
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div *ngFor="let sight of sights">
+      <p>Name: {{ sight.name }}</p>
+      <p>Description: {{ sight.description }}</p>
+      <p>Active: {{ sight.active }}</p>
+      <p>Relevance: {{ sight.relevance }}</p>
+      <p>Lan: {{ sight.langitude }}</p>
+      <p>Lon: {{ sight.longitude }}</p>
+      <div *ngFor="let image of sight.images">
+        <p>{{ image.url }}</p>
+      </div>
+      <a
+        class="badge"
+        routerLink="/sight/{{ sight.id }}"
+      >
+        Show
+      </a>
+    </div>
+  </div>
+</div>

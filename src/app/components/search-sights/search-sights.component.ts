@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Sight } from 'src/app/models/sight.model';
+import { SightService } from 'src/app/services/sight.service';
 
 @Component({
   selector: 'app-search-sights',
@@ -7,9 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchSightsComponent implements OnInit {
 
-  constructor() { }
+  sights?: Sight[]
+  searchName = '';
+  relevance = '';
+
+  constructor(private sightService: SightService) { }
 
   ngOnInit(): void {
+    this.searchSights()
+  }
+
+  searchSights(): void{
+    this.sightService.search(this.searchName, this.relevance)
+      .subscribe({
+        next:(data)=>{
+          this.sights = data
+          console.log(data)
+        },
+        error: (e) => console.log(e)
+      })
   }
 
 }

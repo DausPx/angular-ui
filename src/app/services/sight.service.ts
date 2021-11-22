@@ -16,13 +16,15 @@ export class SightService {
     let params = new HttpParams()
 
     if(name){
-      params.set("name", name)
+      console.log(name);
+      params = params.append("name", name)
     }
 
     if(relevance){
-      params.set("relevance", relevance)
+      params = params.append("relevance", relevance)
     }
 
+    console.log(params)
     return this.http.get<Sight[]>(baseUrl,{
       params: params
     })

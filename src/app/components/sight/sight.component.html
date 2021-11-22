@@ -1,1 +1,11 @@
-<p>sight works!</p>
+<div *ngIf="sight">
+    <p>Name: {{ sight.name }}</p>
+    <p>Description: {{ sight.description }}</p>
+    <p>Active: {{ sight.active }}</p>
+    <p>Relevance: {{ sight.relevance }}</p>
+    <p>Lan: {{ sight.langitude }}</p>
+    <p>Lon: {{ sight.longitude }}</p>
+    <div *ngFor="let image of sight.images">
+      <p>{{ image.url }}</p>
+    </div>
+  </div>
