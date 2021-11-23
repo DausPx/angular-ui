@@ -8,6 +8,7 @@
   <div *ngFor="let image of sight.images">
     <p>{{ image.url }}</p>
   </div>
+  <a class="badge" routerLink="/sight/update/{{ sight.id }}">Update</a>
 
   <app-rating [sightId]="sight.id"></app-rating>
 </div>

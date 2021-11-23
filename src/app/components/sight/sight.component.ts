@@ -6,27 +6,28 @@ import { SightService } from 'src/app/services/sight.service';
 @Component({
   selector: 'app-sight',
   templateUrl: './sight.component.html',
-  styleUrls: ['./sight.component.css']
+  styleUrls: ['./sight.component.css'],
 })
 export class SightComponent implements OnInit {
+  sight?: Sight;
 
-  sight?: Sight
-
-  constructor(private sightService: SightService,    private route: ActivatedRoute,
-    private router: Router) { }
+  constructor(
+    private sightService: SightService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.fetchSight(this.route.snapshot.params['id'])
+    this.fetchSight(this.route.snapshot.params['id']);
   }
 
-  fetchSight(sightId: any): void{
-    this.sightService.get(sightId)
-      .subscribe({
-        next: (data) =>{
-          console.log(data)
-          this.sight = data
-        },
-        error: (error) => console.log(error)
-      })
+  fetchSight(sightId: any): void {
+    this.sightService.get(sightId).subscribe({
+      next: (data) => {
+        console.log(data);
+        this.sight = data;
+      },
+      error: (error) => console.log(error),
+    });
   }
 }
