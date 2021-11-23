@@ -1,0 +1,16 @@
+.editForm {
+  width: 70%;
+  margin: auto;
+}
+
+.card-body{
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 480px) {
+  .editForm {
+    width: 100%;
+  }
+}
