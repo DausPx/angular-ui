@@ -1,17 +1,40 @@
-<div *ngIf="sight" >
-  <p>Name: {{ sight.name }}</p>
-  <p>Description: {{ sight.description }}</p>
-  <p>Active: {{ sight.active }}</p>
-  <p>Relevance: {{ sight.relevance }}</p>
-  <p>Lan: {{ sight.langitude }}</p>
-  <p>Lon: {{ sight.longitude }}</p>
-  <div *ngFor="let image of sight.images">
-    <p>{{ image.url }}</p>
+<div *ngIf="sight" class="row">
+  <div class="blog-main col-md-12">
+    <div class="blog-post">
+      <h2 class="blog-post-title">{{ sight.name }}</h2>
+
+      <p>{{ sight.description }}</p>
+      
+      <div class="row">
+        <p class="col-md-4">Relevance: {{ sight.relevance }}</p>
+        <p class="col-md-4">Langitude: {{ sight.langitude }}</p>
+        <p class="col-md-4">Longitude: {{ sight.longitude }}</p>
+      </div>
+    </div>
   </div>
-  <a class="btn btn-primary" routerLink="/sight/update/{{ sight.id }}">Update</a>
 
   <app-rating [sightId]="sight.id"></app-rating>
+
+  <div class="col-md-12 d-flex justify-content-center align-items-center my-4">
+    <a class="btn btn-secondary" routerLink="/sight/update/{{ sight.id }}"
+      >Update information</a
+    >
+  </div>
+
+  <div class="row">
+    <div *ngFor="let image of sight.images" class="col-md-6">
+      <div class="card mb-4 box-shadow">
+        <img
+          class="card-img-top"
+          alt="image should have been here [100%x225]"
+          style="height: 225px; width: 100%; display: block"
+          [src]="image.url"
+        />
+      </div>
+    </div>
+  </div>
 </div>
+
 <div *ngIf="!sight">
   <p class="text-center">There is not data to show!</p>
 </div>
