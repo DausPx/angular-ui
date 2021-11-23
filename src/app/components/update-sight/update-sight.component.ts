@@ -45,7 +45,7 @@ export class UpdateSightComponent implements OnInit {
   createSight(): void {
     this.message = '';
 
-    this.sightService.create({ sight: this.sight }).subscribe({
+    this.sightService.create({ ...this.sight }).subscribe({
       next: (data) => {
         console.log(data);
         this.message = 'New sight was created!';
