@@ -1,98 +1,94 @@
 <div class="edit-form">
-    <h4>Sight</h4>
-    <form (ngSubmit)="createSight()">
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          required
-          [(ngModel)]="sight.name"
-          name="name"
-        />
-      </div>
-      <div class="form-group">
-        <label for="description">Description</label>
-        <input
-          type="text"
-          class="form-control"
-          id="description"
-          required
-          [(ngModel)]="sight.description"
-          name="description"
-        />
-      </div>
-      <div class="form-group">
-        <select [(ngModel)]="sight.relevance">
-            <option value="znamenito">Znamenito</option>
-            <option value="veoma znamenito">Veoma Znamenito</option>
-            <option value="nezaobilazno">Nezaobilazno</option>
-          </select>
+  <h4>Sight</h4>
+  <form (ngSubmit)="createSight()">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        required
+        [(ngModel)]="sight.name"
+        name="name"
+      />
     </div>
-      <div class="form-group">
-        <label for="langitude">Langitude</label>
-        <input
-          type="text"
-          class="form-control"
-          id="langitude"
-          required
-          [(ngModel)]="sight.langitude"
-          name="langitude"
-        />
-      </div>
-      <div class="form-group">
-        <label for="langitude">Longitude</label>
-        <input
-          type="text"
-          class="form-control"
-          id="longitude"
-          required
-          [(ngModel)]="sight.longitude"
-          name="longitude"
-        />
-      </div>
-  
-      <div class="form-group mx-4">
-        <input
-          type="checkbox"
-          class="form-check-input"
-          id="active"
-          [(ngModel)]="sight.active"
-          name="active"
-        />
-        <label for="active">Active</label>
-      </div>
-  
-      <div class="form-group">
-        <label for="image">Image</label>
-        <input
-          type="url"
-          class="form-control"
-          id="image"
-          required
-          [(ngModel)]="image"
-          name="image"
-        />
-      </div>
-      <button class="badge badge-primary mr-2" (click)="addImage()">
-        Add image
-      </button>
-  
-      <ul *ngIf="sight.images?.length">
-        <li *ngFor="let img of sight.images; let i = index">{{ img.url }}
-          <button class="badge badge-remove mb-2" (click)="removeImage(i)">
-            X
-          </button>
-        </li>
-      </ul>
-      <button
-        type="submit"
-        class="badge badge-success mb-2"
-      >
-        Create
-      </button>
-    </form>
-  
-    <p>{{ message }}</p>
-  </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input
+        type="text"
+        class="form-control"
+        id="description"
+        required
+        [(ngModel)]="sight.description"
+        name="description"
+      />
+    </div>
+    <div class="form-group">
+      <select [(ngModel)]="sight.relevance">
+        <option value="znamenito">Znamenito</option>
+        <option value="veoma znamenito">Veoma Znamenito</option>
+        <option value="nezaobilazno">Nezaobilazno</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="langitude">Langitude</label>
+      <input
+        type="text"
+        class="form-control"
+        id="langitude"
+        required
+        [(ngModel)]="sight.langitude"
+        name="langitude"
+      />
+    </div>
+    <div class="form-group">
+      <label for="langitude">Longitude</label>
+      <input
+        type="text"
+        class="form-control"
+        id="longitude"
+        required
+        [(ngModel)]="sight.longitude"
+        name="longitude"
+      />
+    </div>
+
+    <div class="form-group mx-4">
+      <input
+        type="checkbox"
+        class="form-check-input"
+        id="active"
+        [(ngModel)]="sight.active"
+        name="active"
+      />
+      <label for="active">Active</label>
+    </div>
+
+    <div class="form-group">
+      <label for="image">Image</label>
+      <input
+        type="url"
+        class="form-control"
+        id="image"
+        required
+        [(ngModel)]="image"
+        name="image"
+      />
+    </div>
+    <button class="badge badge-primary mr-2" (click)="addImage()">
+      Add image
+    </button>
+
+    <ul *ngIf="sight.images?.length">
+      <li *ngFor="let img of sight.images; let i = index">
+        {{ img.url }}
+        <button class="badge badge-remove mb-2" (click)="removeImage(i)">
+          X
+        </button>
+      </li>
+    </ul>
+    <button type="submit" class="badge badge-success mb-2">Create</button>
+  </form>
+
+  <p>{{ message }}</p>
+</div>
