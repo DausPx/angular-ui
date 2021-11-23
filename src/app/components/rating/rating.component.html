@@ -1,8 +1,8 @@
 <div *ngIf="sightId">
   <p>Rating: {{ rating }}</p>
   <div class="row">
-      <div class="col-md-3">
-        <input
+    <div class="col-md-3">
+      <input
         type="number"
         class="form-control"
         min="1"
@@ -10,10 +10,11 @@
         placeholder="number"
         [(ngModel)]="rate"
       />
-      </div>
-      <div class="col-md-3">
-        <button type="button" class="btn btn-dark" (click)='setRating()'>Rate</button>
-      </div>
-
+    </div>
+    <div class="col-md-3">
+      <button type="button" class="btn btn-dark" (click)="setRating()">
+        Rate
+      </button>
+    </div>
   </div>
 </div>

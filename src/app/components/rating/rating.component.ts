@@ -23,11 +23,11 @@ export class RatingComponent implements OnInit {
     this.ratingService.getSightRating(sightId).subscribe({
       next: (data) => {
         try {
-          const indexOfDot = `${data}`.indexOf(".")
-          const formattedRating = `${data}`.substring(0, indexOfDot+3)
+          const indexOfDot = `${data}`.indexOf('.');
+          const formattedRating = `${data}`.substring(0, indexOfDot + 3);
           this.rating = formattedRating;
         } catch (error) {
-          this.rating = data
+          this.rating = data;
         }
       },
       error: (e) => console.log(e),
