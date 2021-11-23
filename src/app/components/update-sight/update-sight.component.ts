@@ -42,13 +42,13 @@ export class UpdateSightComponent implements OnInit {
     });
   }
 
-  createSight(): void {
+  updateSight(): void {
     this.message = '';
 
-    this.sightService.create({ ...this.sight }).subscribe({
+    this.sightService.update(this.sight.id, { ...this.sight }).subscribe({
       next: (data) => {
         console.log(data);
-        this.message = 'New sight was created!';
+        this.message = 'Sight was updated!';
       },
       error: (e) => console.log(e),
     });
