@@ -1,6 +1,6 @@
 <div class="edit-form">
   <h4>Sight</h4>
-  <form (ngSubmit)="createSight()">
+  <form>
     <div class="form-group">
       <label for="name">Name</label>
       <input
@@ -87,8 +87,14 @@
         </button>
       </li>
     </ul>
-    <button type="submit" class="badge badge-success mb-2">Create</button>
   </form>
+  <button
+    type="submit"
+    class="badge badge-success mb-2"
+    (click)="createSight()"
+  >
+    Create
+  </button>
 
   <p>{{ message }}</p>
 </div>
