@@ -1,4 +1,4 @@
-<div *ngIf="sight">
+<div *ngIf="sight" >
   <p>Name: {{ sight.name }}</p>
   <p>Description: {{ sight.description }}</p>
   <p>Active: {{ sight.active }}</p>
@@ -8,7 +8,10 @@
   <div *ngFor="let image of sight.images">
     <p>{{ image.url }}</p>
   </div>
-  <a class="badge" routerLink="/sight/update/{{ sight.id }}">Update</a>
+  <a class="btn btn-primary" routerLink="/sight/update/{{ sight.id }}">Update</a>
 
   <app-rating [sightId]="sight.id"></app-rating>
+</div>
+<div *ngIf="!sight">
+  <p class="text-center">There is not data to show!</p>
 </div>

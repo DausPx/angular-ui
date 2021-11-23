@@ -1,20 +1,20 @@
 <div class="list row">
   <div class="col-md-12">
-    <div class="input-group mb-3">
+    <div class="input-group my-1">
       <input
         type="text"
-        class="form-control"
+        class="form-control mx-2"
         placeholder="Search by name"
         [(ngModel)]="searchName"
       />
-      <select [(ngModel)]="relevance">
+      <select [(ngModel)]="relevance" class="mx-2 form-control">
         <option value="znamenito">Znamenito</option>
         <option value="veoma znamenito">Veoma Znamenito</option>
         <option value="nezaobilazno">Nezaobilazno</option>
       </select>
       <div class="input-group-append">
         <button
-          class="btn btn-outline-secondary"
+          class="btn btn-outline-secondary mx-2"
           type="button"
           (click)="searchSights()"
         >
@@ -23,18 +23,14 @@
       </div>
     </div>
   </div>
-  <div class="col-md-12">
-    <div *ngFor="let sight of sights">
-      <p>Name: {{ sight.name }}</p>
-      <p>Description: {{ sight.description }}</p>
-      <p>Active: {{ sight.active }}</p>
-      <p>Relevance: {{ sight.relevance }}</p>
-      <p>Lan: {{ sight.langitude }}</p>
-      <p>Lon: {{ sight.longitude }}</p>
-      <div *ngFor="let image of sight.images">
-        <p>{{ image.url }}</p>
+  <div class="col-md-12 cardContainer">
+    <div class="card m-2 sightCard" *ngFor="let sight of sights">
+      <img class="card-img-top" [src]="sight.images![0] " alt="Sight image">
+      <div class="card-body">
+        <h5 class="card-title">{{ sight.name }}</h5>
+        <p class="card-text">{{ sight.description }}</p>
+        <a class="btn btn-primary" routerLink="/sight/{{ sight.id }}"> Show </a>
       </div>
-      <a class="badge" routerLink="/sight/{{ sight.id }}"> Show </a>
     </div>
   </div>
 </div>
